@@ -1,23 +1,13 @@
 const Expenses=require('../model/expenseModel')
-exports.getExp = async (req, res) => {
-    const userEmail = req.userEmail; // Get the user email from the request (set by middleware)
-    try {
-        // Find the user by email and populate their expenses
-        const user = await Users.findOne({ mail: userEmail }).populate('expenses');
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+exports.getExp=async (req,res)=>{
+    const exp=await Expenses.find()
+    res.status(200).json({
+        msg:"Success",
+        data:{
+            exp
         }
-        res.status(200).json({
-            msg: "Success",
-            data: {
-                expenses: user.expenses,
-                income: user.income
-            }
-        });
-    } catch (error) {
-        res.status(500).json({ message: 'Error fetching expenses' });
-    }
-};
+    })
+}
 exports.postExp = async (req, res) => {
     const newExp=await Expenses.create(req.body)
     res.status(200).json({

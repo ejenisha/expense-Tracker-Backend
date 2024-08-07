@@ -8,7 +8,7 @@ const DB = process.env.DATABASE_URL.replace('<password>', process.env.DATABASE_P
 
 mongoose.connect(DB, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    ssl:true
 })
     .then(() => {
         console.log("Database connected");
