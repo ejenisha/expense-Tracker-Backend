@@ -29,7 +29,7 @@ exports.postExp = async (req, res) => {
 exports.updateExp=async(req,res)=>{
     const { categories,date,description,amount } = req.body;
     try {
-        const expense = await Expenses.findByIdAndUpdate(req.params.id, { amount, description }, { new: true });
+        const expense = await Expenses.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.status(200).json(expense);
     } catch (err) {
         res.status(400).json(err);

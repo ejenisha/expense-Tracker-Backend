@@ -6,6 +6,7 @@ const expSchema = mongoose.Schema({
     date:Date,
     description:String,
     amount:Number
+ 
     
 });
 
