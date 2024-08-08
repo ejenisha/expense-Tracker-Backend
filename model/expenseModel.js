@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const expSchema = mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     categories:String,
     date:Date,
     description:String,
